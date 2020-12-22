@@ -1,13 +1,24 @@
+import { render } from '@testing-library/react';
 import React from 'react';
+import { StockTickerProps, StockTickerState } from './StockTicker.types';
 
-const StockTicker = () => {
-    return (
+class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
+    constructor(props: StockTickerProps) {
+        super(props);
+        this.state = {
+            symbol: props.symbol,   
+        };
+    }
+
+    render() {
+        return (
         <div>
             <p>
-                Ticker
+                { this.state.symbol }
             </p>
         </div>
-    )
+        )
+    }
 }
 
 export default StockTicker;

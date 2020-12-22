@@ -4,6 +4,6 @@ import StockTicker from './StockTicker';
 
 
 test('Noop test', () => {
-  render(<StockTicker />);
+  render(<StockTicker symbol={"TSLA"}/>);
   expect(true).toBeTruthy;
 });

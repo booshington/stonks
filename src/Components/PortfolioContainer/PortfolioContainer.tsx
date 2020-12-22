@@ -4,7 +4,7 @@ import StockTicker from '../StockTicker/StockTicker';
 const PortfolioContainer = () => {
     return (
         <div>
-            <StockTicker />
+            <StockTicker symbol={"TSLA"} />
         </div>
     )
 }
