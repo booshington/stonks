@@ -7,10 +7,26 @@ export type StockTickerProps = {
     data: FinnHubQuote,
   }
 
+  /*
+    o
+    Open price of the day
+
+    h
+    High price of the day
+
+    l
+    Low price of the day
+
+    c
+    Current price
+
+    pc
+    Previous close price
+  */
   export type FinnHubQuote = {
-    o:Number;
-    h:Number;
-    l:Number;
-    c:Number;
-    pc:Number;
+    o:number;
+    h:number;
+    l:number;
+    c:number;
+    pc:number;
   }

@@ -30,14 +30,22 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
 
     render() {
         return (
-        <div>
-            <p>
-                { this.state.symbol }
-            </p>
-            <p>
-                Prev Close: { this.state.data.pc }
-            </p>
-        </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col s3">
+                        { this.state.symbol }
+                    </div>
+                    <div className="col s3">
+                        Current Price: { this.state.data.c }
+                    </div>
+                    <div className="col s3">
+                        Prev Close: { this.state.data.pc }
+                    </div>
+                    <div className="col s3">
+                        Day's Gain: { Number((((this.state.data.c / this.state.data.pc) - 1) * 100).toPrecision(2)) }%
+                    </div>
+                </div>
+            </div>
         )
     }
 }
