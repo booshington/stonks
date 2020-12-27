@@ -1,10 +1,10 @@
 import React from 'react';
-import StockTicker from './Components/StockTicker/StockTicker';
 import './App.css';
+import PortfolioContainer from './Components/PortfolioContainer/PortfolioContainer';
 
 function App() {
   return (
-    <StockTicker />
+    <PortfolioContainer />
   );
 }
 

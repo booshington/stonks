@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import StockTicker from './StockTicker';
+import PortfolioContainer from './PortfolioContainer';
 
 
 test('Noop test', () => {
-  render(<StockTicker symbol={"TSLA"}/>);
+  render(<PortfolioContainer />);
   expect(true).toBeTruthy;
 });
