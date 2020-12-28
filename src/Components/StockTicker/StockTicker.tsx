@@ -10,10 +10,12 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
         this.state = {
             symbol: props.symbol,
             data: util.defaultState.data,
+            company: util.defaultState.company,
         };
     }
 
     componentDidMount(){
+        //https://github.com/Finnhub-Stock-API/finnhub-js
         const finnhub = require('finnhub');
         const api_key = finnhub.ApiClient.instance.authentications['api_key'];
         api_key.apiKey = Config.apiKey
@@ -26,6 +28,10 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
             console.log(data)
             this.setState({data: data})
         });
+        finnhubClient.companyProfile2({'symbol': this.state.symbol}, (error:any, data:any, response:any) => {
+            console.log(data)
+            this.setState({company:data})
+        });
     }
 
     render() {
@@ -36,10 +42,10 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
                         { this.state.symbol }
                     </div>
                     <div className="col s3">
-                        Current Price: { this.state.data.c }
+                        { this.state.company.name }
                     </div>
                     <div className="col s3">
-                        Prev Close: { this.state.data.pc }
+                        Current Price: { this.state.data.c }
                     </div>
                     <div className="col s3">
                         Day's Gain: { Number((((this.state.data.c / this.state.data.pc) - 1) * 100).toPrecision(2)) }%
