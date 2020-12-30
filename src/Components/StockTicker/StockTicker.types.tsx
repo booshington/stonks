@@ -7,6 +7,29 @@ export type StockTickerProps = {
     data: FinnHubQuote,
     company: FinnHubCompanyProfile2,
     metrics: FinnHubBasicFinancials,
+    calculated: FinnHubCalculated,
+  }
+
+  /*
+    Calculated values from portfolio values / finnhub data
+  */
+  export type FinnHubCalculated = {
+    gainLoss:{
+      total:{
+        dollar:number;
+        percent:number;
+      };
+      today:{
+        dollar:number;
+        percent:number;
+      };
+    };
+    currVal:number;
+    quantity:number;
+    costBasis:{
+      perShare:number;
+      total:number;
+    };
   }
 
   /*

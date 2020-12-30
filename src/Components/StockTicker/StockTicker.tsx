@@ -12,6 +12,7 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
             data: util.defaultState.data,
             company: util.defaultState.company,
             metrics: util.defaultState.metrics,
+            calculated: util.defaultState.calculated,
         };
     }
 
@@ -19,30 +20,19 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
         //https://github.com/Finnhub-Stock-API/finnhub-js
         const finnhub = require('finnhub');
         const api_key = finnhub.ApiClient.instance.authentications['api_key'];
-        api_key.apiKey = Config.apiKey
+        api_key.apiKey = Config.sandboxApiKey
         const finnhubClient = new finnhub.DefaultApi()
-        /*
-        Calculated Fields to add to view:
 
-            Today's Gain/Loss Dollar
-            Today's Gain/Loss Percent
-            Total Gain/Loss Dollar
-            Total Gain/Loss Percent
-            Current Value
-            Quantity
-            Cost Basis Per Share
-            Cost Basis Total
-        */
-       
         finnhubClient.quote(this.state.symbol, (error:any, data:FinnHubQuote, response:any) => {
             console.log(data)
             this.setState({data: data})
         });
+        //This information is contained in the Fidelity .csv download
         finnhubClient.companyProfile2({'symbol': this.state.symbol}, (error:any, data:any, response:any) => {
             console.log(data)
             this.setState({company:data})
         });
-
+        //Additional information that could be considered optional (52 week range, etc,)
         finnhubClient.companyBasicFinancials(this.state.symbol, "all", (error:any, data:any, response:any) => {
             console.log(data)
             this.setState({metrics:data})

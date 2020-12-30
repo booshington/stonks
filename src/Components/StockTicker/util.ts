@@ -158,4 +158,22 @@ export const defaultState:StockTickerState = {
             "yearToDatePriceReturnDaily":676.75519
         }
     },
+    calculated:{
+        gainLoss:{
+            total:{
+              dollar:0,
+              percent:100,
+            },
+            today:{
+                dollar:0,
+                percent:100,
+            },
+        },
+        currVal:1,
+        quantity:5,
+        costBasis:{
+            perShare:1,
+            total:2,
+        },
+    }
 }
