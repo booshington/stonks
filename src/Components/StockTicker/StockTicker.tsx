@@ -60,7 +60,7 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
     }
 
     render() {
-        const classes = useStyles();
+        //const classes = useStyles();
 
         const rows = [
             createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
@@ -72,7 +72,7 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
 
         return (
             <TableContainer component={Paper}>
-      <Table className={classes.table} size="small" aria-label="a dense table">
+      <Table className={"table"} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
             <TableCell>Dessert (100g serving)</TableCell>
