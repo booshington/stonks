@@ -15,6 +15,7 @@ class PortfolioContainer extends React.Component<PortfolioContainerProps, Portfo
     constructor(props: PortfolioContainerProps) {
         super(props);
         this.state = {
+            portfolio: props.portfolio,
             symbols: util.defaultProps.symbols, //TODO: fetch symbols
             data: util.defaultProps.data,
         };

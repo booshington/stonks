@@ -3,8 +3,8 @@ import './App.css';
 import PortfolioContainer from './Components/PortfolioContainer/PortfolioContainer';
 
 function App() {
-  return (
-    <PortfolioContainer />
+  return ( //TODO: parse URL portfolio
+    <PortfolioContainer portfolio={{}}/>
   );
 }
 
