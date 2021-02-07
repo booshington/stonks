@@ -8,7 +8,7 @@ export const defaultProps:PortfolioContainerState = {
         positions:[
             {
                 //id: 1, Don't need becuase you can use the index of the array.
-                symbol: "JJ",
+                symbol: "T",
                 buys:[
                     {
                         //id: 1,
@@ -20,7 +20,7 @@ export const defaultProps:PortfolioContainerState = {
             },
             {
                 //id: 1,
-                symbol: "WOW",
+                symbol: "ATI",
                 buys:[
                     {
                         //id: 1,
