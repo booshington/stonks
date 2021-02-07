@@ -1,6 +1,6 @@
 import React from 'react';
 import StockTicker from '../StockTicker/StockTicker';
-import { PortfolioContainerProps, PortfolioContainerState} from './PortfolioContainer.types';
+import { PortfolioContainerProps, PortfolioContainerState, userPosition} from './PortfolioContainer.types';
 import * as util from './util'
 
 /**
@@ -15,11 +15,33 @@ class PortfolioContainer extends React.Component<PortfolioContainerProps, Portfo
     constructor(props: PortfolioContainerProps) {
         super(props);
         this.state = {
-            portfolio: props.portfolio || util.defaultProps.portfolio,
+            portfolio: props.portfolio,// || util.defaultProps.portfolio,
             symbols: util.defaultProps.symbols, //TODO: fetch symbols
             data: util.defaultProps.data,
         };
     }
+    render() {
+        return (
+            <div>
+            <table className={"table"}>
+                <thead>
+                    <tr>
+                        <th className="col s3">Symbol</th>
+                        <th className="col s3">52-Week Range</th>
+                        <th className="col s3">Current Price</th>
+                        <th className="col s3">Day's Gain</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.state.portfolio.positions.map((value:userPosition, index:any, array:any) => {
+                        return <StockTicker key={index} symbol={value.symbol} />
+                    })}
+                </tbody>
+            </table>
+        </div>
+        )
+    }
+    /*
     render() {
         return (
         <div>
@@ -41,6 +63,7 @@ class PortfolioContainer extends React.Component<PortfolioContainerProps, Portfo
         </div>
     )
         }
+        */
 }
 
 export default PortfolioContainer;

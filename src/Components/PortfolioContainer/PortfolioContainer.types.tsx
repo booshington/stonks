@@ -17,14 +17,14 @@ export type portfolioMetaData = {
 }
 
 export type positionBuy = {
-  id: number;
+  //id: number;
   date: string;
   quant: number;
   price: number;
 }
 
 export type userPosition = {
-  id: number;
+  //id: number;
   symbol: string;
   buys:positionBuy[];
 }
