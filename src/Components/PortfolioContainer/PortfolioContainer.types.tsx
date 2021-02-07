@@ -4,7 +4,7 @@ export type PortfolioContainerProps = {
 
 export type PortfolioContainerState = {
   portfolio: userPortfolio;
-  symbols: string[];
+  //symbols: string[];
   data: PortfolioSymbolsData[];
 }
 

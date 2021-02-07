@@ -1,7 +1,19 @@
 import { StockTickerState } from "./StockTicker.types";
 
 export const defaultState:StockTickerState = {
-    symbol:"TSLA",
+    position:{
+        //id: 1, Don't need becuase you can use the index of the array.
+        symbol: "TSLA",
+        buys:[
+            {
+                //id: 1,
+                date: "date",
+                quant: 1,
+                price: 420,
+            },
+        ],
+    },
+    //symbol:"TSLA",
     data: {
         o:420,
         h:420,

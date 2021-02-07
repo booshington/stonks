@@ -5,7 +5,12 @@ import { defaultProps } from './Components/PortfolioContainer/util';
 
 function App() {
   return ( //TODO: parse URL portfolio
+    <>
     <PortfolioContainer portfolio={defaultProps.portfolio}/>
+    <div>
+      { JSON.stringify(defaultProps.portfolio) }
+    </div>
+    </>
   );
 }
 

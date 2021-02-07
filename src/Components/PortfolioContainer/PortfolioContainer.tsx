@@ -16,7 +16,7 @@ class PortfolioContainer extends React.Component<PortfolioContainerProps, Portfo
         super(props);
         this.state = {
             portfolio: props.portfolio,// || util.defaultProps.portfolio,
-            symbols: util.defaultProps.symbols, //TODO: fetch symbols
+            //symbols: util.defaultProps.symbols, //TODO: fetch symbols
             data: util.defaultProps.data,
         };
     }
@@ -34,7 +34,7 @@ class PortfolioContainer extends React.Component<PortfolioContainerProps, Portfo
                 </thead>
                 <tbody>
                     {this.state.portfolio.positions.map((value:userPosition, index:any, array:any) => {
-                        return <StockTicker key={index} symbol={value.symbol} />
+                        return <StockTicker key={index} position={value} />
                     })}
                 </tbody>
             </table>
