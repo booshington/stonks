@@ -4,8 +4,6 @@ export type PortfolioContainerProps = {
 
 export type PortfolioContainerState = {
   portfolio: userPortfolio;
-  //symbols: string[];
-  data: PortfolioSymbolsData[];
 }
 
 export type PortfolioSymbolsData = {
@@ -26,11 +24,11 @@ export type positionBuy = {
 export type userPosition = {
   //id: number;
   symbol: string;
-  buys:positionBuy[];
+  buys: positionBuy[];
 }
 
 export type userPortfolio = {
    metadata: portfolioMetaData;
-   positions:userPosition[];
+   positions: userPosition[];
 }
 
