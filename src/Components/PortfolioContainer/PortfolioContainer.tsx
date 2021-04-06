@@ -3,14 +3,6 @@ import StockTicker from '../StockTicker/StockTicker';
 import { PortfolioContainerProps, PortfolioContainerState, userPosition} from './PortfolioContainer.types';
 import * as util from './util'
 
-/**
- * Takes in, or retrieves, a list of ticker symbols.
- * 
- * Iterates through them, retrieving API information and storing in the local state
- * Stores in a json with the key being the ticker symbol and the value being a json of information
- * 
- * json is iterated over and stockticker components are made with the api retrieved information
- */
 class PortfolioContainer extends React.Component<PortfolioContainerProps, PortfolioContainerState>{
     constructor(props: PortfolioContainerProps) {
         super(props);
