@@ -1,15 +1,27 @@
 import { StockTickerState } from "./StockTicker.types";
 
 export const defaultState:StockTickerState = {
-    symbol:"TSLA",
-    data: {
+    position:{
+        //id: 1, Don't need becuase you can use the index of the array.
+        symbol: "TSLA",
+        buys:[
+            {
+                //id: 1,
+                date: "date",
+                quant: 1,
+                price: 420,
+            },
+        ],
+    },
+    //symbol:"TSLA",
+    /*data: {
         o:420,
         h:420,
         l:420,
         c:420,
         pc:420,
-    },
-    company: {
+    },*/
+    /*company: {
         country: "US",
         currency: "USD",
         exchange: "NASDAQ/NMS (GLOBAL MARKET)",
@@ -22,8 +34,8 @@ export const defaultState:StockTickerState = {
         weburl: "https://www.apple.com/",
         logo: "https://static.finnhub.io/logo/87cb30d8-80df-11ea-8951-00000000092a.png",
         finnhubIndustry:"Technology"
-      },
-    metrics: {
+      },*/
+    /*metrics: {
         symbol:"TSLA",
         metricType:"all",
         metric:{
@@ -157,8 +169,8 @@ export const defaultState:StockTickerState = {
             "totalDebtCagr5Y":40.0784,
             "yearToDatePriceReturnDaily":676.75519
         }
-    },
-    calculated:{
+    },*/
+    /*calculated:{
         gainLoss:{
             total:{
               dollar:0,
@@ -175,5 +187,5 @@ export const defaultState:StockTickerState = {
             perShare:1,
             total:2,
         },
-    }
+    }*/
 }

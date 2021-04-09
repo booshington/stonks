@@ -1,13 +1,15 @@
+import { userPosition } from "../PortfolioContainer/PortfolioContainer.types"
+
 export type StockTickerProps = {
-    symbol: string,
+    position: userPosition;
   }
 
   export type StockTickerState = {
-    symbol: string,
-    data: FinnHubQuote,
+    position: userPosition;
+    /*data: FinnHubQuote,
     company: FinnHubCompanyProfile2,
     metrics: FinnHubBasicFinancials,
-    calculated: FinnHubCalculated,
+    calculated: FinnHubCalculated,*/
   }
 
   /*
