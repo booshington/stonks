@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import { FinnHubQuote, StockTickerProps, StockTickerState } from './StockTicker.types';
+import { FinnHubQuote, StockTickerProps, StockTickerState, FinnHubCompanyProfile2, FinnHubBasicFinancials, FinnHubCalculated } from './StockTicker.types';
 import * as Config from '../../Config';
 import * as util from './util';
 
@@ -17,14 +17,25 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
         };
     }
 
-    //data = {}
     company = {}
     metrics = {}
     calculated = {}
-    data:FinnHubQuote= {}
-    company: FinnHubCompanyProfile2,
-    metrics: FinnHubBasicFinancials,
-    calculated: FinnHubCalculated,*/
+    data:FinnHubQuote = {
+        o:0,
+        h:0,
+        l:0,
+        c:0,
+        pc:0,
+    }
+    // company: FinnHubCompanyProfile2 = {
+
+    // }
+    // metrics: FinnHubBasicFinancials = {
+
+    // }
+    // calculated: FinnHubCalculated = {
+        
+    // }
 
     componentDidMount(){
       
@@ -60,9 +71,9 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
               <td className="col s3">
                   { this.state.position.symbol }
               </td>
-              <td className="col s3">
+              {/* <td className="col s3">
                   { this.metrics.metric['52WeekLow'] } - { this.metrics.metric['52WeekHigh'] }
-              </td>
+              </td> */}
               <td className="col s3">
                   Current Price: { this.data.c }
               </td>
