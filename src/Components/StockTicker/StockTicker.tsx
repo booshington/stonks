@@ -10,32 +10,12 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
         this.state = {
             position: props.position,
             //symbol: props.symbol,
-            /*data: {},
-            company: {},
-            metrics: {},
-            calculated: {},*/
+            data: util.defaultState.data,
+            company: util.defaultState.company,
+            metrics: util.defaultState.metrics,
+            calculated: util.defaultState.calculated,
         };
     }
-
-    company = {}
-    metrics = {}
-    calculated = {}
-    data:FinnHubQuote = {
-        o:0,
-        h:0,
-        l:0,
-        c:0,
-        pc:0,
-    }
-    // company: FinnHubCompanyProfile2 = {
-
-    // }
-    // metrics: FinnHubBasicFinancials = {
-
-    // }
-    // calculated: FinnHubCalculated = {
-        
-    // }
 
     componentDidMount(){
       
@@ -47,21 +27,21 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
 
         finnhubClient.quote(this.state.position.symbol, (error:any, data:FinnHubQuote, response:any) => {
             //console.log(data)
-            //data ? this.setState({data: data}) : console.log("data no")
-            data ? this.data = data : console.log("data no")
+            data ? this.setState({data: data}) : console.log("data no")
+            //data ? this.data = data : console.log("data no")
         });
         
         //This information is contained in the Fidelity .csv download
         finnhubClient.companyProfile2({'symbol': this.state.position.symbol}, (error:any, data:any, response:any) => {
             //console.log(data)
-            //data ? this.setState({company: data}) : console.log("company no")
-            data ? this.company = data : console.log("company no")
+            data ? this.setState({company: data}) : console.log("company no")
+            //data ? this.company = data : console.log("company no")
         });
         //Additional information that could be considered optional (52 week range, etc,)
         finnhubClient.companyBasicFinancials(this.state.position.symbol, "all", (error:any, data:any, response:any) => {
             //console.log(data)
-            //data ? this.setState({metrics: data}) : console.log("metrics no")
-            data ? this.metrics = data : console.log("metrics no")
+            data ? this.setState({metrics: data}) : console.log("metrics no")
+            //data ? this.metrics = data : console.log("metrics no")
         });
     }
 
@@ -71,14 +51,14 @@ class StockTicker extends React.Component<StockTickerProps, StockTickerState>{
               <td className="col s3">
                   { this.state.position.symbol }
               </td>
-              {/* <td className="col s3">
-                  { this.metrics.metric['52WeekLow'] } - { this.metrics.metric['52WeekHigh'] }
-              </td> */}
               <td className="col s3">
-                  Current Price: { this.data.c }
+                  { this.state.metrics.metric['52WeekLow'] } - { this.state.metrics.metric['52WeekHigh'] }
               </td>
               <td className="col s3">
-                  Day's Gain: { Number((((this.data.c / this.data.pc) - 1) * 100).toPrecision(2)) }%
+                  Current Price: { this.state.data.c }
+              </td>
+              <td className="col s3">
+                  Day's Gain: { Number((((this.state.data.c / this.state.data.pc) - 1) * 100).toPrecision(2)) }%
               </td>
             </tr>
         )

@@ -6,10 +6,10 @@ export type StockTickerProps = {
 
   export type StockTickerState = {
     position: userPosition;
-    /*data: FinnHubQuote,
+    data: FinnHubQuote,
     company: FinnHubCompanyProfile2,
     metrics: FinnHubBasicFinancials,
-    calculated: FinnHubCalculated,*/
+    calculated: FinnHubCalculated,
   }
 
   /*
